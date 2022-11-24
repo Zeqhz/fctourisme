@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+    <h2>Liste des établissements</h2>
+    <ul >
+        {% for etablissements in etablissement %}
+            <li><a href="{{ path('app_etablissement') }}"></a><h3>{{ etablissement.nom }}</h3></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
