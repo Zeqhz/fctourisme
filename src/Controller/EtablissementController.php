@@ -22,7 +22,7 @@ class EtablissementController extends AbstractController
         $etablissements = $paginator->paginate(
             $this->etablissementRepository->findBy(['actif' => 'true'],['nom' => 'ASC']),
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            9 /*limit per page*/
         );
 
         return $this->render('etablissement/etablissement.html.twig',[

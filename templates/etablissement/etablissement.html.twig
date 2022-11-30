@@ -4,11 +4,14 @@
 {% block body %}
     <h2>Liste des établissements</h2>
     <ul >
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
         {% for etablissement in etablissements %}
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
+            <div class="col">
+                <div class="card h-100">
+                    {% if etablissement.image is not null %}
+                        <img src="#" class="card-img-top" alt="...">
+                    {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ etablissement.nom }}</h5>
                             <p class="card-text">{{ etablissement.description | slice(0,75)}}</p>
@@ -18,11 +21,12 @@
                             {% endfor %}
                             <a href="{{ path('app_etablissement_slug',{"slug":etablissement.slug}) }}">Voir</a>
                         </div>
-                    </div>
                 </div>
             </div>
         {% endfor %}
-        <div class="navigation d-flex justify-content-center">
+
+        </div>
+        <div class="navigation d-flex justify-content-center mt-2">
             {{ knp_pagination_render(etablissements) }}
         </div>
     </ul>
