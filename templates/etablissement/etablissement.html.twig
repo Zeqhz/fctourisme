@@ -13,7 +13,9 @@
                             <h5 class="card-title">{{ etablissement.nom }}</h5>
                             <p class="card-text">{{ etablissement.description | slice(0,75)}}</p>
                             <p class="card-text">{{ etablissement.ville.codePostal }} {{ etablissement.ville.nom}} </p>
-
+                            {% for categorie in etablissement.categorie %}
+                                <p class="card-text">{{ categorie.nom }}</p>
+                            {% endfor %}
                             <a href="{{ path('app_etablissement_slug',{"slug":etablissement.slug}) }}">Voir</a>
                         </div>
                     </div>
