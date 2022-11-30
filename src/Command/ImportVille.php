@@ -41,6 +41,7 @@ class ImportVille extends Command
 
         $stmt = Statement::create();
 
+        //records = enregistrements
         $records = $stmt->process($csv);
         foreach ($records as $record) {
 
