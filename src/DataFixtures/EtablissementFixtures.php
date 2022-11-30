@@ -47,10 +47,5 @@ class EtablissementFixtures extends Fixture
         $manager->flush();
     }
 
-    public function getDependencies()
-    {
-        return [
-            Fixture::class
-        ];
-    }
+
 }

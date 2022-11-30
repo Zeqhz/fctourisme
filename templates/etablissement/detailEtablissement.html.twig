@@ -5,12 +5,11 @@
 {% block body %}
     <h1>Contenu de l'établissement</h1>
     <div>
-        <h2>{{ etablissement.nom }}</h2>
+        <h2>{{ etablissement.ville.nom }}</h2>
         <p class="fst-italic">Crée le {{ etablissement.createdAt | date('d/m/Y') }}</p>
-        <p>{{ etablissement.description | raw }}</p>
+        <p>{{ etablissement.description}}</p>
         <p>{{ etablissement.numeroTel }}</p>
         <p>{{ etablissement.adressePostale }}</p>
-        <p>{{ etablissement.ville }}</p>
         <p>{{ etablissement.adresseMail}}</p>
         <p>{{ etablissement.image }}</p>
         <p>{{ etablissement.actif }}</p>

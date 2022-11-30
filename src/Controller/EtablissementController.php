@@ -20,7 +20,7 @@ class EtablissementController extends AbstractController
     public function getEtablissement(PaginatorInterface $paginator, Request $request): Response
     {
         $etablissements = $paginator->paginate(
-            $this->etablissementRepository->findBy(['actif' => 'true'],['nom' => 'DESC']),
+            $this->etablissementRepository->findBy(['actif' => 'true'],['nom' => 'ASC']),
             $request->query->getInt('page', 1), /*page number*/
             10 /*limit per page*/
         );

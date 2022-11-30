@@ -11,14 +11,17 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ etablissement.nom }}</h5>
-                            <p class="card-text">{{ etablissement.description }}</p>
+                            <p class="card-text">{{ etablissement.description | slice(0,75)}}</p>
                             <p class="card-text">{{ etablissement.ville.codePostal }} {{ etablissement.ville.nom}} </p>
-                            <p class="card-text">{{ etablissement.categorie}}</p>
+
                             <a href="{{ path('app_etablissement_slug',{"slug":etablissement.slug}) }}">Voir</a>
                         </div>
                     </div>
                 </div>
             </div>
         {% endfor %}
+        <div class="navigation d-flex justify-content-center">
+            {{ knp_pagination_render(etablissements) }}
+        </div>
     </ul>
 {% endblock %}
