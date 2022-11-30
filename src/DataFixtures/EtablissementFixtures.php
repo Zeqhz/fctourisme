@@ -49,6 +49,7 @@ class EtablissementFixtures extends Fixture
             $etablissement->setAccueil($faker->numberBetween(0,1));
             $etablissement->setVille($this->villeRepository->find($numVille));
             $etablissement->setAdressePostale($faker->address());
+            $etablissement->setImage($faker->imageUrl());
             $etablissement->setCreatedAt($faker->dateTimeBetween('-5 years'));
             $etablissement->addCategorie($this->categorieRepository->find($numeroCat));
 
