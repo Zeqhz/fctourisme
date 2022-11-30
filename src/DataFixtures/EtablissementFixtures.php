@@ -31,14 +31,14 @@ class EtablissementFixtures extends Fixture
         $minVille = min($totalVille);
         $maxVille = max($totalVille);
         $totalCat = $this->categorieRepository->findAll();
-        $mincat = min($totalCat);
-        $maxcat= max($totalCat);
+        $minCat = min($totalCat);
+        $maxCat= max($totalCat);
 
 
         for($i=0;$i<=50;$i++){
 
             $numVille = $faker->numberBetween($minVille->getId(),$maxVille->getId());
-            $numcat = $faker->numberBetween($mincat->getId(),$maxcat->getId());
+            $numeroCat = $faker->numberBetween($minCat->getId(),$maxCat->getId());
             $etablissement = new Etablissement();
             $etablissement->setNom($faker->word());
             $etablissement->setSlug($this->slugger->slug($etablissement->getNom())->lower());
@@ -50,8 +50,7 @@ class EtablissementFixtures extends Fixture
             $etablissement->setVille($this->villeRepository->find($numVille));
             $etablissement->setAdressePostale($faker->address());
             $etablissement->setCreatedAt($faker->dateTimeBetween('-5 years'));
-            $etablissement->addCategorie($this->categorieRepository->find($numcat));
-
+            $etablissement->addCategorie($this->categorieRepository->find($numeroCat));
 
             $manager->persist($etablissement);
         }

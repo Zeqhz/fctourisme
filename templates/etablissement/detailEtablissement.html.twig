@@ -7,10 +7,11 @@
         <h1>{{ etablissement.ville.nom }}</h1>
         <p class="fst-italic">Crée le {{ etablissement.createdAt | date('d/m/Y') }}</p>
         <p>{{ etablissement.description}}</p>
-        <p>{{ etablissement.numeroTel }}</p>
-        <p>{{ etablissement.adressePostale }}</p>
-        <p>{{ etablissement.adresseMail}}</p>
-        <p>{{ etablissement.image }}</p>
-
+        <p>Contacter l'entreprise : {{ etablissement.numeroTel }}</p>
+        <p>L'entreprise se trouve au {{ etablissement.adressePostale }}</p>
+        <p>Mail entreprise : {{ etablissement.adresseMail}}</p>
+        {% for categorie in etablissement.categorie %}
+            <p class>Catégorie : {{ categorie.nom }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
