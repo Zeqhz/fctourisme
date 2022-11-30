@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+    <h2>Liste des établissements</h2>
+    <ul >
+        {% for etablissement in etablissements %}
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ etablissement.nom }}</h5>
+                            <p class="card-text">{{ etablissement.description }}</p>
+                            <p class="card-text">{{ etablissement.ville.codePostal }} {{ etablissement.ville.nom}} </p>
+                            <p class="card-text">{{ etablissement.categorie}}</p>
+                            <a href="{{ path('app_etablissement_slug',{"slug":etablissement.slug}) }}">Voir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}

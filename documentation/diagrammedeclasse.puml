@@ -6,15 +6,15 @@ class Etablissement {
 - nom : string
 - slug : slug
 - description : text
-- numeroTel : int
+- numeroTel : string
 - adressePostale : string
 - ville : ville
 - adresseMail : string
 - image : string
 - actif : bool
 - accueil : bool
-- createdAt : dateTime
-- updateAt : dateTime
+- createdAt : date
+- updateAt : date
 - categorie : array
 }
 
@@ -28,7 +28,7 @@ class Ville {
 
 class Categorie {
 - nom : string
-- createdAt : dateTime
+- createdAt : date
 }
 
 Etablissement "0..*"--"1..*" Categorie

@@ -26,7 +26,7 @@ class Etablissement
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $numeroTel = null;
+    private ?string $numeroTel = null;
 
     #[ORM\Column(length: 255)]
     private ?string $adressePostale = null;
@@ -47,11 +47,11 @@ class Etablissement
     #[ORM\Column]
     private ?bool $accueil = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updateAt = null;
+    private ?\DateTime $updateAt = null;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'etablissements')]
     private Collection $categorie;
@@ -102,15 +102,14 @@ class Etablissement
         return $this;
     }
 
-    public function getNumeroTel(): ?int
+    public function getNumeroTel(): ?string
     {
         return $this->numeroTel;
     }
 
-    public function setNumeroTel(int $numeroTel): self
+    public function setNumeroTel(string $numeroTel): self
     {
         $this->numeroTel = $numeroTel;
-
         return $this;
     }
 
@@ -186,24 +185,24 @@ class Etablissement
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
+    public function getUpdateAt(): ?\DateTime
     {
         return $this->updateAt;
     }
 
-    public function setUpdateAt(?\DateTimeImmutable $updateAt): self
+    public function setUpdateAt(?\DateTime $updateAt): self
     {
         $this->updateAt = $updateAt;
 
