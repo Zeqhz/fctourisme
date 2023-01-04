@@ -34,12 +34,16 @@ class EtablissementFixtures extends Fixture
         $minCat = min($totalCat);
         $maxCat= max($totalCat);
 
-
+        // Création de la boucle du jeu de données
         for($i=0;$i<=50;$i++){
 
             $numVille = $faker->numberBetween($minVille->getId(),$maxVille->getId());
             $numeroCat = $faker->numberBetween($minCat->getId(),$maxCat->getId());
+
+            // Création de l'établissement
             $etablissement = new Etablissement();
+
+            // Ajout des données
             $etablissement->setNom($faker->word());
             $etablissement->setSlug($this->slugger->slug($etablissement->getNom())->lower());
             $etablissement->setDescription($faker->sentence(255,true));

@@ -42,8 +42,8 @@ class ImportVille extends Command
         $stmt = Statement::create();
 
         //records = enregistrements
-        $records = $stmt->process($csv);
-        foreach ($records as $record) {
+        $villes = $stmt->process($csv);
+        foreach ($villes as $record) {
 
             if ($record["Département"]==25 || $record["Département"]==39 || $record["Département"]==70 || $record["Département"]==90){
                 $ville = new Ville();

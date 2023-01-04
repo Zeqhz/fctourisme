@@ -31,7 +31,23 @@ class Categorie {
 - createdAt : date
 }
 
+class Utilisateur {
+- prenom : string
+- nom : string
+- pseudo : string
+- mail : string
+- motDePasse : string
+- createdAt : date
+- updateAt : date
+- roles : array
+- actif : bool
+}
+
+
 Etablissement "0..*"--"1..*" Categorie
 Etablissement "0..*"--"1..1" Ville
+
+
+
 
 @enduml
