@@ -56,13 +56,14 @@ class Etablissement
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'etablissements')]
     private Collection $categorie;
 
-    #[ORM\ManyToMany(targetEntity: Utilisateur::class, mappedBy: 'etablissement')]
-    private Collection $utilisateurs;
+    #[ORM\ManyToMany(targetEntity: Utilisateur::class, mappedBy: 'favoris')]
+    private Collection $favoris;
+
 
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
-        $this->utilisateurs = new ArrayCollection();
+        $this->favoris = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -240,25 +241,25 @@ class Etablissement
     /**
      * @return Collection<int, Utilisateur>
      */
-    public function getUtilisateurs(): Collection
+    public function getfavoris(): Collection
     {
-        return $this->utilisateurs;
+        return $this->favoris;
     }
 
-    public function addUtilisateur(Utilisateur $utilisateur): self
+    public function addFavoris(Utilisateur $favoris): self
     {
-        if (!$this->utilisateurs->contains($utilisateur)) {
-            $this->utilisateurs->add($utilisateur);
-            $utilisateur->addEtablissement($this);
+        if (!$this->favoris->contains($favoris)) {
+            $this->favoris->add($favoris);
+            $favoris->addFavoris($this);
         }
 
         return $this;
     }
 
-    public function removeUtilisateur(Utilisateur $utilisateur): self
+    public function removeFavoris(Utilisateur $favoris): self
     {
-        if ($this->utilisateurs->removeElement($utilisateur)) {
-            $utilisateur->removeEtablissement($this);
+        if ($this->favoris->removeElement($favoris)) {
+            $favoris->removeFavoris($this);
         }
 
         return $this;

@@ -46,7 +46,7 @@ class Utilisateur {
 
 Etablissement "0..*"--"1..*" Categorie
 Etablissement "0..*"--"1..1" Ville
-
+Etablissement "0..*"--"0..*" Utilisateur
 
 
 
