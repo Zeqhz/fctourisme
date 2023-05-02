@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Projet FC-TOURISME{% endblock %}
 
 {% block body %}
     <ul >
@@ -21,6 +21,19 @@
                             {% for categorie in etablissement.categorie %}
                                 <p class="card-text">{{ categorie.nom }}</p>
                             {% endfor %}
+                            {% if app.user %}
+
+                                {% if etablissement in app.user.getFavoris %}
+                                    <a href="{{ path('app_favori_retirer', {'slug': etablissement.slug}) }}" class="btn btn-danger">
+                                        Retirer un favoris
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('app_favori_ajouter', {'slug': etablissement.slug}) }}" class="btn btn-warning">
+                                        Ajouter un favoris
+                                    </a>
+                                {% endif %}
+
+                            {% endif %}
                             <a href="{{ path('app_etablissement_slug',{"slug":etablissement.slug}) }}">Voir</a>
 
                         </div>

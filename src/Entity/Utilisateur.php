@@ -207,7 +207,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
      * @return Collection<int, Etablissement>
      */
 
-    public function getfavoris(): Collection
+    public function getFavoris(): Collection
     {
         return $this->favoris;
     }

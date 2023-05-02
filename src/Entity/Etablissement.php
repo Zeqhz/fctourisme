@@ -241,7 +241,7 @@ class Etablissement
     /**
      * @return Collection<int, Utilisateur>
      */
-    public function getfavoris(): Collection
+    public function getFavoris(): Collection
     {
         return $this->favoris;
     }
