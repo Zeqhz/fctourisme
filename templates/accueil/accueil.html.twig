@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <body>
+    <h1 class="d-flex justify-content-center">Bienvenue FC-Tourism</h1>
+    <div class="row d-flex justify-content-center mx-5 card-deck mb-3">
+        <div class="col-12 col-lg-4 mx-2 mt-3">
+            <div class="border border-dark rounded">
+                <h2 class="mb-2 d-flex pb-4 p-2 text-white justify-content-center" style="background: #5598fd">Etablissements du Doubs (25)</h2>
+                {% for etablissement in etablissements25 |slice(0, 2) %}
+                    {% if etablissement.image is not null %}
+                        <img src="{{ etablissement.image }} " class="card-img-top" alt="...">
+                    {% endif %}
+                    <a class="border border-secondary rounded p-3 text-decoration-none text-dark  justify-content-center d-flex my-4 mx-2"
+                       href="{{ path('app_etablissement_slug',{'slug': etablissement.slug}) }}">{{ etablissement.nom }} - {{ etablissement.ville.nom }}</a>
+
+                {% endfor %}
+            </div></div>
+
+
+        <div class="col-12 col-lg-4 mx-2 mt-3" style="">
+            <div class="border border-dark rounded">
+                <h2 class="mb-2 d-flex pb-4 p-2 text-white justify-content-center" style="background: #5598fd">Etablissements du Territoire de Belfort (39)</h2>
+                {% for etablissement in etablissements39 |slice(0, 2) %}
+                    {% if etablissement.image is not null %}
+                        <img src="{{ etablissement.image }} " class="card-img-top" alt="...">
+                    {% endif %}
+                    <a class="border border-secondary rounded p-3 text-decoration-none text-dark  justify-content-center d-flex my-4 mx-2"
+                       href="{{ path('app_etablissement_slug',{'slug': etablissement.slug}) }}">{{ etablissement.nom }} - {{ etablissement.ville.nom }}</a>
+
+                {% endfor %}
+            </div></div>
+
+
+        <div class="col-12 col-lg-4 mx-2 mt-5">
+            <div class="border border-dark rounded">
+                <h2 class="mb-2 d-flex pb-4 p-2 text-white justify-content-center" style="background: #5598fd">Etablissements du Jura (90)</h2>
+                {% for etablissement in etablissements90 |slice(0, 2) %}
+                    {% if etablissement.image is not null %}
+                        <img src="{{ etablissement.image }} " class="card-img-top" alt="...">
+                    {% endif %}
+                    <a class="border border-secondary rounded p-3 text-decoration-none text-dark  justify-content-center d-flex my-4 mx-2"
+                       href="{{ path('app_etablissement_slug',{'slug': etablissement.slug}) }}">{{ etablissement.nom }} - {{ etablissement.ville.nom }}</a>
+
+
+                {% endfor %}
+            </div></div>
+
+
+        <div class="col-12 col-lg-4 mx-2 mt-5">
+            <div class="border border-dark rounded" >
+                <h2 class="mb-2 d-flex pb-4 p-2 text-white justify-content-center" style="background: #5598fd">Etablissements de la Haute-Saône (70)</h2>
+                {% for etablissement in etablissements70 |slice(0, 2) %}
+                    {% if etablissement.image is not null %}
+                        <img src="{{ etablissement.image }} " class="card-img-top" alt="...">
+                    {% endif %}
+                    <a class="border border-secondary rounded p-3 text-decoration-none text-dark  justify-content-center d-flex my-4 mx-2"
+                       href="{{ path('app_etablissement_slug',{'slug': etablissement.slug}) }}">{{ etablissement.nom }} - {{ etablissement.ville.nom }}</a>
+
+                {% endfor %}
+            </div></div>
+
+
+    </div>
+    </body>
+{% endblock %}
