@@ -1,17 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <section class="container alert alert-secondary p-5">
+        <h1>Inscription</h1>
+        <div class="d-flex justify-content-center">
+            <div class="row mt-5 ">
+                {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                <h2 class="h4 mt-3">Pseudonyme</h2>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                <div class="col-12 mt-1">
+
+                    {{ form_row(registrationForm.pseudo) }}
+
+                </div>
+                <h2 class="h4 mt-3">Email</h2>
+
+                <div class="col-12 mt-1">
+
+                    {{ form_row(registrationForm.email) }}
+
+                </div>
+                <h2 class="h4 mt-3">Nom</h2>
+
+                <div class="col-12 mt-1">
+
+                    {{ form_row(registrationForm.nom) }}
+
+                </div>
+                <h2 class="h4 mt-3">Prénom</h2>
+
+                <div class="col-12  mt-1">
+
+                    {{ form_row(registrationForm.prenom) }}
+
+                </div>
+                <h2 class="h4 mt-3">Mot de Passe</h2>
+                <div class="col-12  mt-1">
+
+                    {{ form_row(registrationForm.password) }}
+
+                </div>
+
+                <button type="submit" class="btn btn-primary d-flex mx-auto mt-5 ">Enregistrer</button>
+
+                {{ form_end(registrationForm) }}
+            </div>
+
+        </div>
+    </section>
 {% endblock %}
